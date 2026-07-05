@@ -50,4 +50,12 @@
 (add-hook 'after-init-hook #'elpaca-process-queues)
 (elpaca `(,@elpaca-order))
 
+;;;; Visual Interface
+(use-package modus-themes
+  :ensure nil 
+  :config
+  (load-theme 'modus-operandi t))
+
+(set-face-attribute 'default nil :font "Iosevka" :height 110)
+
 ;;; init.el ends here
