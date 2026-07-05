@@ -7,5 +7,6 @@
 ;; Simple early-init.el to maximize speed and UI minimalism.
 
 ;;; Code:
+(setq package-enable-at-startup nil)
 
 ;;; early-init.el ends here
