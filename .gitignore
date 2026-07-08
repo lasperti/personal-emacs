@@ -1,4 +1,23 @@
-# Emacs recovery and backup files
+# Emacs Core Debris
 *~
 \#*#
 .#*
+*.elc
+*.eln
+
+# Package Manager
+elpaca/
+
+# Native Compilation Cache
+var/eln-cache/
+
+# State & Auto-Save Directories
+var/
+auto-save-list/
+network-security.data
+transient/
+bookmarks
+places
+
+# Project Local Configs
+.dir-locals.el
