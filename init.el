@@ -138,5 +138,14 @@
            :target (file+head+olp "%<%Y-%m-%d>-journal.org" my/journal-header ("Thesis")))))
 
   (org-roam-db-autosync-mode))
+
+;;;; org-roam-ui
+(use-package org-roam-ui
+  :after org-roam
+  :config
+  (setq org-roam-ui-sync-theme t
+        org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start nil))
  
 ;;; init.el ends here
