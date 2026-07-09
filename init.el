@@ -133,17 +133,16 @@
   (defvar my/journal-header 
     "#+TITLE: Journal - %<%Y-%m-%d>\n#+DATE: [%<%Y-%m-%d>]\n\n* Thesis\n\n* Antithesis\n\n* Synthesis\n")
 
-  (setq org-roam-dailies-capture-templates
-        '(("s" "Synthesis" item
-           "- [%<%H:%M>] %?"
+(setq org-roam-dailies-capture-templates
+        '(("s" "Synthesis" entry
+           "* [%<%H:%M>]\n%?"
            :target (file+head+olp "%<%Y-%m-%d>-journal.org" my/journal-header ("Synthesis")))
-          ("a" "Antithesis" item
-           "- [%<%H:%M>] %?"
+          ("a" "Antithesis" entry
+           "* [%<%H:%M>]\n%?"
            :target (file+head+olp "%<%Y-%m-%d>-journal.org" my/journal-header ("Antithesis")))
           ("t" "Thesis" plain
-           "%?"
+           "** [%<%H:%M>]\n%?"
            :target (file+head+olp "%<%Y-%m-%d>-journal.org" my/journal-header ("Thesis")))))
-
   (org-roam-db-autosync-mode))
 
 ;;;; org-roam-ui
