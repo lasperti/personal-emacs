@@ -50,11 +50,18 @@
 (add-hook 'after-init-hook #'elpaca-process-queues)
 (elpaca `(,@elpaca-order))
 
+;;;; Elpaca <-> Use-Package Translation Layer
+(elpaca elpaca-use-package
+  (elpaca-use-package-mode)
+  (setq use-package-always-ensure t))
+
 ;;;; Visual Interface
 (load-theme 'modus-operandi t)
 
 (set-face-attribute 'default nil :font "Iosevka" :height 130)
 
+;;;; Core Dependencies
+(use-package transient)
 
 ;;;; org-mode
 (use-package org
@@ -147,5 +154,8 @@
         org-roam-ui-follow t
         org-roam-ui-update-on-save t
         org-roam-ui-open-on-start nil))
- 
+
+;;;; Magit
+(use-package magit)
+
 ;;; init.el ends here
