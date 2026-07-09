@@ -73,4 +73,20 @@
   :hook
   (org-mode . visual-line-mode))
 
+;;;; org-roam
+(use-package org-roam
+  :custom
+  (org-roam-directory (file-truename "~/org"))
+  (org-roam-completion-everywhere t)
+
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)     
+         ("C-c n i" . org-roam-node-insert)   
+         ("C-c n c" . org-roam-capture)       
+         :map org-mode-map
+         ("C-M-i" . completion-at-point))
+
+  :config
+  (org-roam-db-autosync-mode))
+ 
 ;;; init.el ends here
