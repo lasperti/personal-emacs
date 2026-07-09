@@ -55,4 +55,22 @@
 
 (set-face-attribute 'default nil :font "Iosevka" :height 130)
 
+
+;;;; org-mode
+(use-package org
+  :ensure nil 
+  :custom
+  (org-directory (file-truename "~/org"))
+  (org-startup-indented t)
+  (org-return-follows-link t)
+  (org-catch-invisible-edits 'smart)
+  
+  (org-todo-keywords
+   '((sequence "TODO(t)" "ACTIVE(a)" "WAITING(w)" "|" "RESOLVED(r)" "KILLED(k)")))
+  (org-log-done 'time)
+  (org-enforce-todo-dependencies t)
+  
+  :hook
+  (org-mode . visual-line-mode))
+
 ;;; init.el ends here
