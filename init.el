@@ -51,7 +51,7 @@
 (elpaca `(,@elpaca-order))
 
 ;;;; Visual Interface
-(load-theme 'modus-operandi)
+(load-theme 'modus-operandi t)
 
 (set-face-attribute 'default nil :font "Iosevka" :height 130)
 
