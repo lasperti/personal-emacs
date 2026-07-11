@@ -135,13 +135,13 @@
 
 (setq org-roam-dailies-capture-templates
       `(("t" "Thesis" entry
-         "* [%<%H:%M>]\n%?"
+         "** [%<%H:%M>]\n%?"
          :target (file+head+olp "%<%Y-%m-%d>-journal.org" ,my/journal-header ("Thesis")))
         ("a" "Antithesis" entry
-         "* [%<%H:%M>]\n%?"
+         "** [%<%H:%M>]\n%?"
          :target (file+head+olp "%<%Y-%m-%d>-journal.org" ,my/journal-header ("Antithesis")))
         ("s" "Synthesis" entry
-         "* [%<%H:%M>]\n%?"
+         "** [%<%H:%M>]\n%?"
          :target (file+head+olp "%<%Y-%m-%d>-journal.org" ,my/journal-header ("Synthesis"))))))
 
 ;;;; org-roam-ui
