@@ -130,20 +130,19 @@
                          "#+TITLE: ${title}\n#+DATE: [%<%Y-%m-%d>]\n\n* Hypothesis\n")
       :unnarrowed t)))
 
-  (defvar my/journal-header 
-    "#+TITLE: Journal - %<%Y-%m-%d>\n#+DATE: [%<%Y-%m-%d>]\n\n* Thesis\n\n* Antithesis\n\n* Synthesis\n")
+(defvar my/journal-header 
+  "#+TITLE: Journal - %<%Y-%m-%d>\n#+DATE: [%<%Y-%m-%d>]\n\n* Thesis\n\n* Antithesis\n\n* Synthesis\n")
 
 (setq org-roam-dailies-capture-templates
-        '(("s" "Synthesis" entry
-           "* [%<%H:%M>]\n%?"
-           :target (file+head+olp "%<%Y-%m-%d>-journal.org" my/journal-header ("Synthesis")))
-          ("a" "Antithesis" entry
-           "* [%<%H:%M>]\n%?"
-           :target (file+head+olp "%<%Y-%m-%d>-journal.org" my/journal-header ("Antithesis")))
-          ("t" "Thesis" plain
-           "** [%<%H:%M>]\n%?"
-           :target (file+head+olp "%<%Y-%m-%d>-journal.org" my/journal-header ("Thesis")))))
-  (org-roam-db-autosync-mode))
+      `(("t" "Thesis" entry
+         "* [%<%H:%M>]\n%?"
+         :target (file+head+olp "%<%Y-%m-%d>-journal.org" ,my/journal-header ("Thesis")))
+        ("a" "Antithesis" entry
+         "* [%<%H:%M>]\n%?"
+         :target (file+head+olp "%<%Y-%m-%d>-journal.org" ,my/journal-header ("Antithesis")))
+        ("s" "Synthesis" entry
+         "* [%<%H:%M>]\n%?"
+         :target (file+head+olp "%<%Y-%m-%d>-journal.org" ,my/journal-header ("Synthesis")))))
 
 ;;;; org-roam-ui
 (use-package org-roam-ui
