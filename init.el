@@ -142,7 +142,7 @@
          :target (file+head+olp "%<%Y-%m-%d>-journal.org" ,my/journal-header ("Antithesis")))
         ("s" "Synthesis" entry
          "* [%<%H:%M>]\n%?"
-         :target (file+head+olp "%<%Y-%m-%d>-journal.org" ,my/journal-header ("Synthesis")))))
+         :target (file+head+olp "%<%Y-%m-%d>-journal.org" ,my/journal-header ("Synthesis"))))))
 
 ;;;; org-roam-ui
 (use-package org-roam-ui
