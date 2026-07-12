@@ -104,52 +104,52 @@
 
   :config
   (setq org-roam-capture-templates
-   '(("1" "Treaty" plain "%?"
-      :if-new (file+head "treaty/%<%Y%m%d%H%M%S>-${slug}.org" 
-                         "#+TITLE: ${title}\n#+DATE: [%<%Y-%m-%d>]\n#+EPOCH: \n\n* Preamble\n\n* Directives\n")
-      :unnarrowed t)
-     ("2" "Source" plain "%?"
-      :if-new (file+head "source/%<%Y%m%d%H%M%S>-${slug}.org" 
-                         "#+TITLE: ${title}\n#+DATE: [%<%Y-%m-%d>]\n\n* Metadata\n\n* Provenance\n\n* Archival\n")
-      :unnarrowed t)
-     ("3" "Fact" plain "%?"
-      :if-new (file+head "fact/%<%Y%m%d%H%M%S>-${slug}.org" 
-                         "#+TITLE: ${title}\n#+DATE: [%<%Y-%m-%d>]\n\n* Ontology\n\n* Mechanics\n\n* Provenance\n")
-      :unnarrowed t)
-     ("4" "Picture" plain "%?"
-      :if-new (file+head "picture/%<%Y%m%d%H%M%S>-${slug}.org" 
-                         "#+TITLE: ${title}\n#+DATE: [%<%Y-%m-%d>]\n\n* Handout\n\n* Friction\n\n* Exploit\n")
-      :unnarrowed t)
-     ("5" "Proposition" plain "%?"
-      :if-new (file+head "proposition/%<%Y%m%d%H%M%S>-${slug}.org" 
-                         "#+TITLE: ${title}\n#+DATE: [%<%Y-%m-%d>]\n#+STATE: ACTIVE\n\n* Initial state\n\n* Active state\n- [ ] \n\n* Target state\n")
-      :unnarrowed t)
-     ("6" "Space" plain "%?"
-      :if-new (file+head "space/%<%Y%m%d%H%M%S>-${slug}.org" 
-                         "#+TITLE: ${title}\n#+DATE: [%<%Y-%m-%d>]\n\n* Metadata\n\n* Architecture\n")
-      :unnarrowed t)
-     ("7" "Name (Entity/Organization)" plain "%?"
-      :if-new (file+head "name/%<%Y%m%d%H%M%S>-${slug}.org" 
-                         "#+TITLE: ${title}\n#+DATE: [%<%Y-%m-%d>]\n\n* Metadata\n\n* Architecture\n")
-      :unnarrowed t)
-     ("9" "Thought" plain "%?"
-      :if-new (file+head "thought/%<%Y%m%d%H%M%S>-${slug}.org" 
-                         "#+TITLE: ${title}\n#+DATE: [%<%Y-%m-%d>]\n\n* Hypothesis\n")
-      :unnarrowed t)))
+	'(("1" "Treaty" plain "%?"
+	   :if-new (file+head "treaty/%<%Y%m%d%H%M%S>-${slug}.org" 
+                              "#+TITLE: ${title}\n#+DATE: [%<%Y-%m-%d>]\n#+EPOCH: \n\n* Preamble\n\n* Directives\n")
+	   :unnarrowed t)
+	  ("2" "Source" plain "%?"
+	   :if-new (file+head "source/%<%Y%m%d%H%M%S>-${slug}.org" 
+                              "#+TITLE: ${title}\n#+DATE: [%<%Y-%m-%d>]\n\n* Metadata\n\n* Provenance\n\n* Archival\n")
+	   :unnarrowed t)
+	  ("3" "Fact" plain "%?"
+	   :if-new (file+head "fact/%<%Y%m%d%H%M%S>-${slug}.org" 
+                              "#+TITLE: ${title}\n#+DATE: [%<%Y-%m-%d>]\n\n* Ontology\n\n* Mechanics\n\n* Provenance\n")
+	   :unnarrowed t)
+	  ("4" "Picture" plain "%?"
+	   :if-new (file+head "picture/%<%Y%m%d%H%M%S>-${slug}.org" 
+                              "#+TITLE: ${title}\n#+DATE: [%<%Y-%m-%d>]\n\n* Handout\n\n* Friction\n\n* Exploit\n")
+	   :unnarrowed t)
+	  ("5" "Proposition" plain "%?"
+	   :if-new (file+head "proposition/%<%Y%m%d%H%M%S>-${slug}.org" 
+                              "#+TITLE: ${title}\n#+DATE: [%<%Y-%m-%d>]\n#+STATE: ACTIVE\n\n* Initial state\n\n* Active state\n- [ ] \n\n* Target state\n")
+	   :unnarrowed t)
+	  ("6" "Space" plain "%?"
+	   :if-new (file+head "space/%<%Y%m%d%H%M%S>-${slug}.org" 
+                              "#+TITLE: ${title}\n#+DATE: [%<%Y-%m-%d>]\n\n* Metadata\n\n* Architecture\n")
+	   :unnarrowed t)
+	  ("7" "Name (Entity/Organization)" plain "%?"
+	   :if-new (file+head "name/%<%Y%m%d%H%M%S>-${slug}.org" 
+                              "#+TITLE: ${title}\n#+DATE: [%<%Y-%m-%d>]\n\n* Metadata\n\n* Architecture\n")
+	   :unnarrowed t)
+	  ("9" "Thought" plain "%?"
+	   :if-new (file+head "thought/%<%Y%m%d%H%M%S>-${slug}.org" 
+                              "#+TITLE: ${title}\n#+DATE: [%<%Y-%m-%d>]\n\n* Hypothesis\n")
+	   :unnarrowed t)))
 
-(defvar my/journal-header 
-  "#+TITLE: Journal - %<%Y-%m-%d>\n#+DATE: [%<%Y-%m-%d>]\n\n* Thesis\n\n* Antithesis\n\n* Synthesis\n")
+  (defvar my/journal-header 
+    "#+TITLE: Journal - %<%Y-%m-%d>\n#+DATE: [%<%Y-%m-%d>]\n\n* Thesis\n\n* Antithesis\n\n* Synthesis\n")
 
-(setq org-roam-dailies-capture-templates
-      `(("t" "Thesis" entry
-         "** [%<%H:%M>]\n%?"
-         :target (file+head+olp "%<%Y-%m-%d>-journal.org" ,my/journal-header ("Thesis")))
-        ("a" "Antithesis" entry
-         "** [%<%H:%M>]\n%?"
-         :target (file+head+olp "%<%Y-%m-%d>-journal.org" ,my/journal-header ("Antithesis")))
-        ("s" "Synthesis" entry
-         "** [%<%H:%M>]\n%?"
-         :target (file+head+olp "%<%Y-%m-%d>-journal.org" ,my/journal-header ("Synthesis"))))))
+  (setq org-roam-dailies-capture-templates
+	`(("t" "Thesis" entry
+           "** [%<%H:%M>]\n%?"
+           :target (file+head+olp "%<%Y-%m-%d>-journal.org" ,my/journal-header ("Thesis")))
+          ("a" "Antithesis" entry
+           "** [%<%H:%M>]\n%?"
+           :target (file+head+olp "%<%Y-%m-%d>-journal.org" ,my/journal-header ("Antithesis")))
+          ("s" "Synthesis" entry
+           "** [%<%H:%M>]\n%?"
+           :target (file+head+olp "%<%Y-%m-%d>-journal.org" ,my/journal-header ("Synthesis"))))))
 
 ;;;; org-roam-ui
 (use-package org-roam-ui
