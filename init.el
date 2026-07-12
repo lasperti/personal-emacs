@@ -231,6 +231,10 @@
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
+(use-package consult-eglot
+  :after (consult eglot)
+  :commands (consult-eglot-symbols))
+
 (use-package helpful
   :bind
   (("C-h f" . helpful-callable)
