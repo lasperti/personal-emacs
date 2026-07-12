@@ -63,6 +63,13 @@
 ;;;; Core Dependencies
 (use-package transient)
 
+;;;; Built-in functionality
+(use-package emacs
+  :ensure nil
+  :init
+  (savehist-mode 1)
+  (recentf-mode 1))
+
 ;;;; org-mode
 (use-package org
   :ensure nil 
@@ -155,5 +162,81 @@
 
 ;;;; Magit
 (use-package magit)
+
+;;;; Completion
+(use-package vertico
+  :init
+  (vertico-mode))
+
+(use-package orderless
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-defaults nil)
+  (completion-category-overrides '((file (styles partial-completion))))
+  (completion-pcm-leading-wildcard t))
+
+(use-package marginalia
+  :init
+  (marginalia-mode))
+
+(use-package corfu
+  :custom
+  (corfu-auto t)
+  (corfu-auto-delay 0.1)
+  (corfu-auto-prefix 2)
+  (corfu-quit-no-match t)
+  :init
+  (global-corfu-mode)
+  :config
+  (add-hook 'text-mode-hook
+            (lambda ()
+              (setq-local corfu-auto nil))))
+
+(use-package embark
+  :bind
+  (("C-." . embark-act)
+   ("C-h B" . embark-bindings)
+   ("C-;" . embark-dwim))
+  :init
+  (setq prefix-help-command #'embark-prefix-help-command)
+  :config
+  (add-to-list 'display-buffer-alist
+               '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
+                 nil
+                 (window-parameters (mode-line-format . none)))))
+
+(use-package consult
+  :bind (("C-x b" . consult-buffer)
+         ("C-x p b" . consult-project-buffer)
+         ("C-s" . consult-line)
+         ("M-y" . consult-yank-pop)
+         ("M-s r" . consult-ripgrep)
+         ("M-g i" . consult-imenu))
+  :commands (consult-buffer
+             consult-flymake
+             consult-imenu
+             consult-line
+             consult-project-buffer
+             consult-recent-file
+             consult-ripgrep))
+
+(use-package consult-dir
+  :after vertico
+  :commands (consult-dir consult-dir-jump-file)
+  :bind (:map vertico-map
+              ("C-x C-d" . consult-dir)
+              ("C-x C-j" . consult-dir-jump-file)))
+
+(use-package embark-consult
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
+
+(use-package helpful
+  :bind
+  (("C-h f" . helpful-callable)
+   ("C-h v" . helpful-variable)
+   ("C-h k" . helpful-key)
+   ("C-h x" . helpful-command)
+   ("C-c C-d" . helpful-at-point)))
 
 ;;; init.el ends here
