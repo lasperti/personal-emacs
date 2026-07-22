@@ -55,6 +55,10 @@
   (elpaca-use-package-mode)
   (setq use-package-always-ensure t))
 
+;;;; Elpaca Compat Fix
+(setq elpaca-ignored-dependencies (delq 'compat elpaca-ignored-dependencies))
+(elpaca (compat :wait t))
+
 ;;;; Visual Interface
 (load-theme 'modus-operandi t)
 
